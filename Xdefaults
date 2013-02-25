@@ -1,0 +1,13 @@
+urxvt.urgentOnBell: true
+urxvt.depth: 32
+urxvt.background: [86]#000000
+urxvt.foreground: White
+urxvt.scrollBar: false
+
+URxvt.perl-ext-common: default,matcher,vtwheel
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
+#URxvt*font: xft:Monospace:pixelsize=12:antialias=false
+#URxvt.font: -*-terminus-medium-*-*-*-*-100-*-*-*-*-iso8859-1
+URxvt.font: xft:terminus:pixelsize=8
