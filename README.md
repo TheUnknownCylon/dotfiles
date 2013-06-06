@@ -9,8 +9,8 @@ Installation is quite easy (script from https://github.com/thoughtbot/dotfiles/b
     ./install.sh
 
 
-Syten config
-============
+System configuration
+===================
 Currently, the following configs are in this repo:
   
   * Bash
