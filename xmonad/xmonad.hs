@@ -89,6 +89,7 @@ inskeys conf@(XConfig {modMask = modMask'}) = [
     ((mod4Mask,               xK_w        ), spawn (term_exec ++ "wicd-curses")),      -- start wicd-curses
     ((mod4Mask,               xK_a        ), spawn (term_exec ++ "alsamixer")),        -- start alsamixer
     ((mod4Mask,               xK_t        ), spawn (term_exec ++ "htop")),             -- start htop
+    ((mod4Mask,               xK_d        ), spawn ("dolphin")),                       -- start dolphin
     
     ((0,                      0x1008ff2a  ), spawn "sudo pm-suspend"),                 -- XF86PowerOff
     ((0,                      0x1008ff02  ), spawn "xbacklight +20"),                  -- XF86MonBrightnessUp
