@@ -52,7 +52,7 @@ layoutHook' = onWorkspace "9:_" gridLayout $ normalLayout
 --Dzen2 bars and logHook
 logHook' h = dynamicLogWithPP $ defaultPP { 
     ppCurrent = dzenColor "#ebac54" "#1B1D1E" . pad,
-    ppVisible = dzenColor "white" "#1B1D1E" . pad,
+    ppVisible = dzenColor "yellow" "#1B1D1E" . pad,
     ppHidden = dzenColor "white" "#1B1D1E" . pad,
     ppHiddenNoWindows = dzenColor "#7b7b7b" "#1B1D1E" . pad,
     ppUrgent = dzenColor "red" "#1B1D1E" . pad,
