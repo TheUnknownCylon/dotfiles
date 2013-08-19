@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+#add bin folder to path
+PATH=~/bin:$PATH
+
 #some aliasses --from ArchWiki
 alias diff='colordiff'              # requires colordiff package
 alias grep='grep --color=auto'
