@@ -8,7 +8,7 @@
 #add bin folder to path
 PATH=~/bin:$PATH
 
-#some aliasses --from ArchWiki
+#some aliasses
 alias diff='colordiff'              # requires colordiff package
 alias grep='grep --color=auto'
 alias more='less'
@@ -17,6 +17,8 @@ alias du='du -c -h'
 alias mkdir='mkdir -p -v'
 alias nano='nano -w'
 alias ..='cd ..'
+
+alias json='python -mjson.tool'
 
 # ls
 alias ls='ls -hF --color=auto'
