@@ -25,7 +25,7 @@ import qualified XMonad.StackSet as W
 
 -- General settings
 modMask'  = mod1Mask             -- Xmonad default actions key: Left Alt key
-terminal' = "/usr/bin/urxvt"     -- Default terminal (ModMask + ENTER)
+terminal' = "/usr/bin/xfce4-terminal"     -- Default terminal (ModMask + ENTER)
 term_exec = terminal' ++ " -e "  -- Command to execute terminal applications on
 
 -- Window border settings
@@ -84,12 +84,11 @@ myRightBar = myLeftBar {
 --Custom keys
 delkeys XConfig {modMask = modMask'} = []
 inskeys conf@(XConfig {modMask = modMask'}) = [
-    ((mod4Mask .|. shiftMask, xK_Return   ), spawn "xfce4-terminal"),                  -- spawn XFCE4 terminal
-    ((mod4Mask,               xK_4        ), spawn (term_exec ++ "~/programs/chat")),  -- weechat over SSH
-    ((mod4Mask,               xK_w        ), spawn (term_exec ++ "wicd-curses")),      -- start wicd-curses
-    ((mod4Mask,               xK_a        ), spawn (term_exec ++ "alsamixer")),        -- start alsamixer
-    ((mod4Mask,               xK_t        ), spawn (term_exec ++ "htop")),             -- start htop
-    ((mod4Mask,               xK_d        ), spawn ("dolphin")),                       -- start dolphin
+    ((modMask' .|. shiftMask, xK_4        ), spawn (term_exec ++ "~/programs/chat")),  -- weechat over SSH
+    ((modMask' .|. shiftMask, xK_w        ), spawn (term_exec ++ "wicd-curses")),      -- start wicd-curses
+    ((modMask' .|. shiftMask, xK_a        ), spawn (term_exec ++ "alsamixer")),        -- start alsamixer
+    ((modMask' .|. shiftMask, xK_t        ), spawn (term_exec ++ "htop")),             -- start htop
+    ((modMask' .|. shiftMask, xK_d        ), spawn ("dolphin")),                       -- start dolphin
     
     ((0,                      0x1008ff2a  ), spawn "sudo pm-suspend"),                 -- XF86PowerOff
     ((0,                      0x1008ff02  ), spawn "xbacklight +20"),                  -- XF86MonBrightnessUp
