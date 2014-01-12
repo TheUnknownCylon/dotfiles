@@ -29,7 +29,7 @@ terminal' = "/usr/bin/urxvt"     -- Default terminal (ModMask + ENTER)
 term_exec = terminal' ++ " -e "  -- Command to execute terminal applications on
 
 -- Window border settings
-myBorderWidth       = 1
+myBorderWidth       = 2
 normalBorderColor'  = "#3F3E3C"
 focusedBorderColor' = "orange" -- "orange" -- "#5F5E5C",
 
