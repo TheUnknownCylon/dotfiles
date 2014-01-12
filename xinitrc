@@ -6,7 +6,13 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 
 #Use the caps lock key as the escape key
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'&
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+
+#Map the windows key to the control group, for the sole purpose
+# of using it in VIM
+xmodmap -e 'remove mod4 = Super_L'
+xmodmap -e 'add control = Super_L'
+
 
 #Start some utilities apps
 unclutter -grab -idle 10&   #Hide mouse if unused
