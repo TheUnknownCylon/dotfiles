@@ -18,7 +18,9 @@ alias mkdir='mkdir -p -v'
 alias nano='nano -w'
 alias ..='cd ..'
 
-alias json='python -mjson.tool'
+alias json='python -mjson.tool | pygmentize -f terminal256 -l json -O bg=dark'
+alias jsonbw='python -mjson.tool'
+alias ccat='pygmentize -O bg=dark -g'
 
 # ls
 alias ls='ls -hF --color=auto'
@@ -65,3 +67,6 @@ bash_prompt() {
 }
 bash_prompt
 unset bash_prompt
+
+
+HISTSIZE=5000
