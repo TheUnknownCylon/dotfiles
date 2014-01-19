@@ -24,7 +24,7 @@ import qualified XMonad.StackSet as W
 
 
 -- General settings
-modMask'  = mod1Mask             -- Xmonad default actions key: Left Alt key
+modMask'  = mod4Mask             -- Xmonad default actions key: Left Alt key, which is mapped in xinitrc to the WIN key
 terminal' = "/usr/bin/xfce4-terminal"     -- Default terminal (ModMask + ENTER)
 term_exec = terminal' ++ " -e "  -- Command to execute terminal applications on
 
