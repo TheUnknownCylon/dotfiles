@@ -17,6 +17,8 @@ import XMonad.Layout.Grid
 import XMonad.Layout.PerWorkspace
 import XMonad.Util.Run
 import XMonad.Layout.Named
+import XMonad.Prompt
+import XMonad.Prompt.RunOrRaise
 
 import XMonad.Util.CustomKeys
 import XMonad.Hooks.UrgencyHook
@@ -48,18 +50,25 @@ normalLayout = avoidStruts $ tile ||| mtile ||| full
      
 layoutHook' = onWorkspace "9:_" gridLayout $ normalLayout
 
+barBgColor = "#1B1D1E" 
+
+promptLayout = defaultXPConfig {
+    XMonad.Prompt.bgColor = barBgColor,
+    position          = Top,
+    promptBorderWidth = 0
+}
 
 --Dzen2 bars and logHook
 logHook' h = dynamicLogWithPP $ defaultPP { 
-    ppCurrent = dzenColor "#ebac54" "#1B1D1E" . pad,
-    ppVisible = dzenColor "yellow" "#1B1D1E" . pad,
-    ppHidden = dzenColor "white" "#1B1D1E" . pad,
-    ppHiddenNoWindows = dzenColor "#7b7b7b" "#1B1D1E" . pad,
-    ppUrgent = dzenColor "red" "#1B1D1E" . pad,
+    ppCurrent = dzenColor "#ebac54" barBgColor . pad,
+    ppVisible = dzenColor "yellow" barBgColor . pad,
+    ppHidden = dzenColor "white" barBgColor . pad,
+    ppHiddenNoWindows = dzenColor "#7b7b7b" barBgColor . pad,
+    ppUrgent = dzenColor "red" barBgColor . pad,
     ppWsSep = "",
     ppSep = " | ",
-    ppLayout = dzenColor "#ebac54" "#1B1D1E",
-    ppTitle = dzenColor "white" "#1B1D1E" . dzenEscape,
+    ppLayout = dzenColor "#ebac54" barBgColor,
+    ppTitle = dzenColor "white" barBgColor . dzenEscape,
     ppOutput = hPutStrLn h
 }
 
@@ -69,7 +78,7 @@ logHook' h = dynamicLogWithPP $ defaultPP {
 myLeftBar :: DzenConf
 myLeftBar = defaultDzen {
     width = Just $ Percent 60, -- span 60%
-    Dzen.bgColor = Just "#1B1D1E"
+    Dzen.bgColor = Just barBgColor 
 }
 
 --Use the left one as a base, moving it to the right and making it right-aligned.
@@ -84,7 +93,9 @@ myRightBar = myLeftBar {
 --Custom keys
 delkeys XConfig {modMask = modMask'} = []
 inskeys conf@(XConfig {modMask = modMask'}) = [
-    ((modMask' .|. shiftMask, xK_4        ), spawn (term_exec ++ "~/programs/chat")),  -- weechat over SSH
+    ((modMask',               xK_p        ), runOrRaisePrompt promptLayout),
+
+    --((modMask' .|. shiftMask, xK_4        ), spawn (term_exec ++ "~/programs/chat")),  -- weechat over SSH
     ((modMask' .|. shiftMask, xK_w        ), spawn (term_exec ++ "wicd-curses")),      -- start wicd-curses
     ((modMask' .|. shiftMask, xK_a        ), spawn (term_exec ++ "alsamixer")),        -- start alsamixer
     ((modMask' .|. shiftMask, xK_t        ), spawn (term_exec ++ "htop")),             -- start htop
